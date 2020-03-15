@@ -1,0 +1,11 @@
+# Create the Kubernetes deployment
+kubectl create -f Nginx_Example_App/nginx.yml
+
+# Check if the deployment was created successfully
+kubectl get deployments -o wide
+
+# Expose the deployment as a service. This will create an Azure LB
+kubectl expose deployment nginx-deployment --type=LoadBalancer --name=nginx-service
+
+# Check if the service was created successfully
+kubectl get service -o wide
